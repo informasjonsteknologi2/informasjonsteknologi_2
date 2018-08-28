@@ -20,9 +20,11 @@
       var navn1="Mari";
       var alder1=17;
       var navn2="Hans";
-      var alder2=18
-      var tekst = navn1 + " og " + navn2 ;
-      tekst += " er tilsammen " + alder1 + alder2 + " år.";
+      var alder2="18";
+      console.log(typeof(alder2));
+      var sum = alder1 + Number(alder2);
+      var tekst = navn1 + " og " + navn2;
+      tekst += " er tilsammen " + sum + " år.";
       console.log(tekst);
     </script>
   </body>
