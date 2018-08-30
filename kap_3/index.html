@@ -8,12 +8,30 @@
 
   <body>
     <script>
-      //if else
+      // if else
+      var høyde = 156;
+      //Sjekker om høyden er større enn 100 og samtidig om den er lavere enn 180 (&& betyr at begge må være sanne)
+      if (høyde>100&&høyde<180){
+        console.log("Hurra du er høy nok!");
+      } else{
+        console.log("Beklager, du må være mellom 100 og 180");
+      }
+      var alder=68
+      //Sjekker om en av de er sanne. Enten mindre enn 16 eller høyere enn 67 || betyr eller.
+      if (alder<16||alder>67) {
+        console.log("Du er ikke i arbeid");
+      }
+      //Math.random() trekker et tilfeldig tall mellom 0 og 1
+      var tall = Math.random()*10;//Ganger med 10 for å få tall mellom 0 og 10
+      console.log(tall);
+      var tall2 =Math.floor(tall)+1;//Math.floor() runder tallet ned til nærmeste hele tall. Her trekkes hele tall fra 1 til og med 10.
+      console.log(tall2);
 
-      //while
 
-      //for
-      
+      //while løkker
+
+      //for løkker
+
     </script>
   </body>
 
