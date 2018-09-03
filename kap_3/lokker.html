@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Repetisjon av løkker og if else</title>
+      <!-- <link rel="stylesheet" href="stilark.css"> -->
+  </head>
+
+  <body>
+    <script>
+      //Hva vil følgende script gjøre?
+      for (var i = 1; i <= 10; i++) {
+        var tallrekke = "";
+        for (var j = 1; j <=10; j++) {
+          var tall = i*j;
+          tallrekke +=" " + tall;
+        }
+        console.log(tallrekke);
+      }
+
+      // Hva vil dette scriptet gjøre
+      var riktigTall = Math.floor(Math.random()*50) + 1;
+      var gjettet = prompt("Jeg tenker på et tall mellom 1 og 50. Gjett tallet");
+      while (gjettet!=riktigTall) {
+        if(gjettet<riktigTall){
+          gjettet = prompt("For lavt. Prøv på nytt!");
+        } else {
+          gjettet = prompt("For høyt. Prøve på nytt!");
+        }
+      }
+      alert("Gratulerer du tippet riktig!");
+
+    </script>
+  </body>
+
+</html>
