@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>TITLE</title>
+      <link rel="stylesheet" href="stilark.css">
+  </head>
+
+  <body>
+    <script>
+    //Fibonacci-tallene er følgende tallrekke
+    // 0 1 1 2 3 5 8 13 osv
+    //Det neste tallet i rekken er summen av de to forrige tallene
+    //Lag et script som gir oss de 20 første fibbonaccitallene
+    var tall1 = 0;
+    console.log(tall1);
+    var tall2 = 1;
+    console.log(tall2);
+    for (var i = 0; i < 20; i++) {
+      tallF = tall1 + tall2;
+      console.log(tallF);
+      tall1 = tall2;
+      tall2 = tallF;
+    }
+
+    </script>
+  </body>
+
+</html>

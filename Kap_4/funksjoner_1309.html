@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Funksjoner</title>
+      <!-- <link rel="stylesheet" href="stilark.css"> -->
+  </head>
+
+  <body>
+    <script>
+      siHei("Thomas");
+      siHei("Ole");
+
+
+      var navn = "Nicolay"
+      siHei(navn);
+      console.log(siHei);
+      function siHei(navn) {
+        console.log("Hei " + navn);
+      }
+      function arealFirkant(lengde, hoyde) {
+        areal = lengde*hoyde;
+        console.log("Arealet av en firkant med høyde" + hoyde + " og bredde " + lengde + " er " + areal);
+      }
+
+      arealFirkant(4,5)
+    </script>
+  </body>
+
+</html>
