@@ -22,10 +22,27 @@
       //En funksjon som beregner arealet av en firkant
       function arealFirkant(lengde, hoyde) {
         areal = lengde*hoyde;
-        console.log("Arealet av en firkant med høyde" + hoyde + " og bredde " + lengde + " er " + areal);
+        return areal;
+        console.log("Arealet av en firkant med høyde " + hoyde + " og bredde " + lengde + " er " + areal);
+
       }
 
-      arealFirkant(4,5)
+      var areal1 = arealFirkant(4,5);
+      var areal2 = arealFirkant(5,9);
+      sumAreal = areal1 + areal2;
+      console.log(sumAreal);
+
+      function terningkast() {
+        var kast = Math.floor((Math.random()*6))+1;
+        console.log(kast);
+        return kast;
+
+      }
+      terningkast();
+
+
+
+
     </script>
   </body>
 
