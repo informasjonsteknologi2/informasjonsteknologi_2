@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>TITLE</title>
+      <!-- <link rel="stylesheet" href="stilark.css"> -->
+  </head>
+
+  <body>
+    <script>
+      //Oppgave 1a
+      var farge = prompt("Skriv en farge");
+      alert("Den fineste fargen er " + farge + "!");
+
+      //Oppgave 1b
+      var lengde1 = Number(prompt("Skriv inn den lengste lengden av trapeset"));
+      var lengde2 = Number(prompt("Skriv inn den korteste lengden av trapeset"));
+      var hoyde = prompt("Skriv inn høyden av trapeset");
+      var areal = (lengde1 + lengde2)*hoyde/2;
+      alert("Arealet av trapeset er " + areal);
+
+      //Oppgave 2
+      var tall = 13;
+      var tekst = "Petter";
+
+      console.log(tall<100); //true
+      console.log(tall<20); //true
+      console.log(tall=="13"); //true
+      console.log(tall ==="13"); //false
+      console.log(tekst =="petter"); //false
+      console.log(tall>10&&tall<13); //false
+
+      //Oppgave 3a
+      var alder = prompt("Skriv inn din alder");
+      if (alder>0&&alder<=3) { //Sjekker om alder er mellom 0 og til og med 3
+        console.log("Du kan kjøre med tog gratis");
+      }else if ((alder>3&&alder<=15)||alder>=67) { //Sjekker om alder er fra og med 4 til og 15, eller om alder er over 67
+        console.log("Du får 50% rabatt");
+      }else if(alder>15&&alder<67){
+        console.log("Du får ikke rabatt hos NSB"); //Sjekker om alder er over 15 og under 67
+      } else { //Sjekker om brukeren har skrevet inn et positivt tall. Trenger ikke denne for å få full score
+        console.log("Du må skrive inn din alder");
+      }
+
+      //Oppgave 3b
+      var tall1 = prompt("Skriv inn et tall");
+      var tall2 = prompt("Skriv inn et tall til");
+
+      if(tall1<tall2){
+        alert(tall2 + " er det største tallet av de to");
+      } else if (tall1 == tall2) {
+        alert("Tallene er like");
+      }else {
+        alert(tall1 + " er det største tallet av de to");
+      }
+
+      //Oppgave 4a
+      for (var i = 1; i <= 10; i++) {
+        console.log(i);
+      }
+
+      //Oppgave 4b
+      var sum = 0; //Deklarer
+      while (sum<100) {
+        var tall = Number(prompt("Skriv et tall")); //Lar brukeren skrive inn et
+        // tall som blir gjort om til datatypen Number
+        sum+=tall; //I variabelen sum blir tallet som brukeren
+        //legger til lagt i variabelen sum.
+      }
+      //Denne koden vil legge sammen alle tall som brukeren skriver inn
+      //helt til at summen er mer enn 100.
+
+      //Oppgave 5
+      var fornavn = "Petter";
+      console.log(fornan);
+      //Vil gi en feilmelding fordi vi har skrevet fornavn feil og da
+      //er det ikke noen verdi som er tilordnet variabelen fornan
+
+      //Oppgave 6
+      //Denne kan løses på flere måter
+      var tall1 = 0;
+      console.log(tall1);
+      var tall2 = 1;
+      console.log(tall2);
+      for (var i = 0; i < 18; i++) {
+        tallF = tall1 + tall2;
+        console.log(tallF);
+        tall1 = tall2;
+        tall2 = tallF;
+      }
+    </script>
+  </body>
+
+</html>
