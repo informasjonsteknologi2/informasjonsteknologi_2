@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Variabler og Kommentering av kode</title>
+      <!-- <link rel="stylesheet" href="stilark.css"> -->
+  </head>
+
+  <body>
+    <script>
+      //Forskjell på globale og lokale Variabler
+
+      function skrivTekstLokal() {
+        var tekstLokal = "Hei på deg Per!";
+        //tekstLokal er en lokal variabel og kan kun brukes inne i funksjonen
+        console.log(tekstLokal);
+      }
+      skrivTekstLokal();
+      // console.log(tekstLokal);
+
+      var tekstGlobal = "Hei på deg Pål!";
+      //teksglobal er en global variabel og kan brukes overalt
+      function skrivTekstGlobal() {
+        console.log(tekstGlobal);
+      }
+      skrivTekstGlobal();
+
+      /* Skriver ut en tekst mange ganger
+      *
+      * Argument(String) tekst - teksten som skrives ut
+      * Argument(Number) antall - antall ganger teksten skal skrives ut
+      */
+      function skrivMangeGanger(tekst, antall) {
+        for (var i = 0; i < antall; i++) {
+          console.log(tekst);
+        }
+      }
+
+    </script>
+  </body>
+
+</html>
