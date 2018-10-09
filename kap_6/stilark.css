@@ -13,10 +13,10 @@ div{
   padding:20px;
   display: inline-block;
 }
-h1, h2, p{
+h1, h2, p{ /*Når jeg vl endre flere samtidig*/
   color: red;
 }
-div p{
+div p{ /*Endrer kun paragrapher i div elementet*/
   color: blue;
 }
 li{
@@ -28,13 +28,13 @@ li{
   border-radius: 5px;
 
 }
-ul li{
+ul li{ /*Endrer kun li elementer som er i ul liste*/
     list-style-type: none;
 }
 a{
   color: green;
   font-weight: bold;
 }
-a:hover{
+a:hover{ /*Hover vil si når musen holdes over lenken*/
   color: red;
 }
