@@ -2,7 +2,6 @@
 body{
   color:grey;
   font-size: 20px;
-  display: flex;
   font-family: "Roboto", Arial, seriff;
 }
 
@@ -12,4 +11,30 @@ div{
   border: 2px solid black;
   margin:20px;
   padding:20px;
+  display: inline-block;
+}
+h1, h2, p{
+  color: red;
+}
+div p{
+  color: blue;
+}
+li{
+  background-color: #e0e0e0;
+  width: 200px;
+  color:black;
+  margin:2px;
+  padding: 5px;
+  border-radius: 5px;
+
+}
+ul li{
+    list-style-type: none;
+}
+a{
+  color: green;
+  font-weight: bold;
+}
+a:hover{
+  color: red;
 }
