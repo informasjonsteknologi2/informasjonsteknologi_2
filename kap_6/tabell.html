@@ -10,22 +10,22 @@
           background-repeat: no-repeat;
         }
         table{
-          border-collapse: collapse;
+          border-collapse: collapse; /*Fjerne kanten mellom alle celler og rader*/
         }
         th{
-          background-color: #e0e0e0;
-          padding: 5px;
-          border:2px solid black;
+          background-color: #e0e0e0;/*Gir første rad med th en grå bakgrunnsfarge*/
+          padding: 5px;/*Legger inn luft på innsiden av cellen*/
+          border:2px solid black; /*Legger til en kantlinje*/
         }
         td{
-          padding: 5px;
-          border:2px solid black;
+          padding: 5px;/*Legger inn luft på innsiden av cellen*/
+          border:2px solid black;/*Legger til en kantlinje*/
         }
         tr:nth-child(odd){
-          background-color: #a0a0a0;
+          background-color: #a0a0a0; /*Annenhver rad får en mørk grå farge*/
         }
         tr:nth-child(2){
-          background-color: blue;
+          background-color: blue; /*Rad nr 2 får en blå  bakgrunnsfarge*/
         }
       </style>
   </head>
@@ -33,15 +33,15 @@
   <body>
     <!-- Hvordan en tabell lages i html -->
       <table>
-        <tr>
-          <th>Navn</th>
+        <tr> <!-- Lager en ny rad-->
+          <th>Navn</th> <!--Lager en enkelt celle av typen med overskrift-->
           <th>Høyde</th>
           <th>Land</th>
         </tr>
         <tr>
-          <td>Galdhøpiggen</td>
-          <td>2469 moh</td>
-          <td>Norge</td>
+          <td>Galdhøpiggen</td><!--Lager en enkelt celle-->
+          <td>2469 moh</td><!--Lager en enkelt celle-->
+          <td>Norge</td><!--Lager en enkelt celle-->
         </tr>
         <tr>
           <td>Mount Everest</td>
@@ -67,6 +67,8 @@
 
     <!-- Hvordan legge inn bilder -->
     <img src="bilder/mountain.jpg" alt="Galdhøpiggen" width="960" height="529">
+    <!-- src er filplasseringen til bildet. alt er en tekst som vises hvis bildet ikke lastes -->
+    <!-- Bruk faktiske størrelser på bilder. Skaler de heller på forhånd -->
     <div>
 
     </div>
