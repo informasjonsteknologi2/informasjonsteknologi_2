@@ -2,6 +2,7 @@
 body{
   display: flex;
   font-family: Roboto;
+  background-image: url('bilder/galdhopiggen.jpg');
 }
 div{
   margin: 20px;
@@ -9,4 +10,16 @@ div{
   width: 200px;
   height: 300px;
   border: 2px solid black;
+}
+#rod{
+  background-color: rgba(255, 0, 0, 0.5);
+  color: blue;
+}
+.gronn{
+  background-color: green;
+  color: yellow;
+
+}
+.gronn:hover{
+  background-color: grey;
 }
