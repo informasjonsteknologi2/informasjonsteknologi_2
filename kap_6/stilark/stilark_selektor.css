@@ -2,7 +2,7 @@
 body{
   display: flex;
   font-family: Roboto;
-  background-image: url('bilder/galdhopiggen.jpg');
+  background-image: url('../bilder/galdhopiggen.jpg');
 }
 div{
   margin: 20px;
