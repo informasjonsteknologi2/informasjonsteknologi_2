@@ -3,17 +3,47 @@
   <head>
       <meta charset="UTF-8">
       <title>Hjemmesiden min</title>
-      <style>
-        .gul{
-          background-color: yellow;
-        }
-      </style>
+      <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
     <h1>Velkommen til siden min</h1>
     <p>På denne siden kan du lære om meg.</p>
     <p class="gul">Min favorittfarge er gul.</p>
+
+    <script>
+      //HEnter ut avsnitt med class gul
+      var avsnittEl = document.querySelector(".gul");
+      avsnittEl.innerHTML="HAHA endra teksten din";
+
+      //Henter ut hele body
+      var bodyEl = document.querySelector("body");
+
+      //Legger til et avsnitt
+      bodyEl.innerHTML+="<p>Hei på deg</p>";
+
+      //Lager tabell med Hurra i alle celler
+      var tabell = "<table>";
+      tabell+="<tr>";
+      tabell+="<th>Hurra</th>";
+      tabell+="<th>Hurra</th>";
+      tabell+="<th>Hurra</th>";
+      tabell+="</tr>";
+      tabell+="<tr>";
+      tabell+="<td>Hurra</td>";
+      tabell+="<td>Hurra</td>";
+      tabell+="<td>Hurra</td>";
+      tabell+="</tr>";
+      tabell+="<tr>";
+      tabell+="<td>Hurra</td>";
+      tabell+="<td>Hurra</td>";
+      tabell+="<td>Hurra</td>";
+      tabell+="</tr>";
+      tabell+="</table>";
+
+      //Legger tabellen inn i body
+      bodyEl.innerHTML+=tabell
+    </script>
   </body>
 
 </html>

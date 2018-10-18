@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-body{
-  background-color: #c0c0c0;
-  font-size: 20px;
-  font-family: "Roboto", Arial, seriff;
+.gul{
+  background-color: yellow;
+}
+
+.rosa{
+  background-color: pink;
 }
