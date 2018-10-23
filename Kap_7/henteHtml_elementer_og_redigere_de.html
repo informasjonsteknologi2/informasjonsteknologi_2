@@ -16,6 +16,18 @@
       var avsnittEl = document.querySelector(".gul");
       avsnittEl.innerHTML="HAHA endra teksten din";
 
+      //Vi kan endre attrinbutter med metoden setAttribute()
+      //Her endrer vi attributten class fra gul til rosa
+      avsnittEl.setAttribute("class", "rosa");
+
+      //Kan fjerne attributes med removeAttribute()
+      avsnittEl.removeAttribute("class");
+
+      //Alternativt kan man endre CSS-egenskapene direkte slik
+      avsnittEl.style.backgroundColor="blue";
+      //Eller med bruk av className hvis man alt har lagt
+      avsnittEl.className="rosa";
+
       //Henter ut hele body
       var bodyEl = document.querySelector("body");
 

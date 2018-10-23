@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>TITLE</title>
+      <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <h1>Velkommen til min side!!</h1>
+    <p>Dette er min fantastiske paragraf på siden min</p>
+    <p class="gul">Dette er enda en fantastisk paragraf på siden min</p>
+
+    <script>
+
+      //Henter ut elementer
+      var bodyEl = document.querySelector("body");
+      var avsnittEl = document.querySelector("p");
+      var gulAvsnittEl = document.querySelector(".gul");
+
+      //Endrer den første paragrafen til rosa bakgrunn og ny tekst.
+      avsnittEl.innerHTML = "Dette er en ny tekst";
+      avsnittEl.setAttribute("class", "rosa")
+
+      //Lager en ny paragraph
+      var nyttAvsnitt = document.createElement("p")
+      nyttAvsnitt.innerHTML ="Dette avsnittet skal jeg legge til.";
+      nyttAvsnitt.className = "gul"
+
+      //Legger til den nye paragrafen nederst i body
+      bodyEl.appendChild(nyttAvsnitt)
+
+      //Endrer class slik av gulAvsnitt får rosa bakgrunn
+      gulAvsnittEl.className = "rosa";
+
+
+    </script>
+
+  </body>
+
+</html>
