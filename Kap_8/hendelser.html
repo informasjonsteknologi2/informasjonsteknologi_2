@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>TITLE</title>
+      <link rel="stylesheet" href="stilark.css">
+  </head>
+
+  <body>
+    <h1>Min overskrift</h1>
+
+    <script>
+      var overskriftEl = document.querySelector("h1");
+      overskriftEl.addEventListener("mouseover", minFunksjon);
+
+      function minFunksjon() {
+        overskriftEl.innerHTML = "Du trykket på meg";
+      }
+      overskriftEl.removeEventListener("click", minFunksjon)
+    </script>
+
+  </body>
+
+</html>
