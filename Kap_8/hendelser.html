@@ -10,13 +10,21 @@
     <h1>Min overskrift</h1>
 
     <script>
+      //Henter ut overskrift element
       var overskriftEl = document.querySelector("h1");
+
+      //Legger til en lytter med hendelsen mouseover.
+      //Når musa flyttes over overskriften så blir minFunksjon kjørt og overskriften endres
       overskriftEl.addEventListener("mouseover", minFunksjon);
 
+      //En funksjon som endrer hvs som skal stå i overskriften
       function minFunksjon() {
         overskriftEl.innerHTML = "Du trykket på meg";
       }
-      overskriftEl.removeEventListener("click", minFunksjon)
+
+      //For å fjerne en hendelse må vi si hvilket element,
+      //hvilken hendelse og hvilken funksjon vi skal fjerne
+      overskriftEl.removeEventListener("mouseover", minFunksjon)
     </script>
 
   </body>
