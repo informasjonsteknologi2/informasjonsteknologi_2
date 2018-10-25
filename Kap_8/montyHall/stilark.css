@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body{
+  background-color: #323232;
+  font-family: "Roboto", Arial, serif;
+  font-size: 14px;
+  color: #f2f2f2;
+}
+img:hover{
+  cursor: pointer;
+}
