@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <title>mousemove-hendelse</title>
+  <meta charset="UTF-8">
+  <style>
+  html, body {
+    height: 100%;
+  }
+  body {
+    background-color: #e0e0e0;
+    font-family: "Century Gothic", Arial, sans-serif;
+    font-size: 14px;
+    color: #323232;
+  }
+  p {
+    background-color: #f05a3f;
+    padding: 20px;
+  }
+  </style>
+</head>
+<body>
+  <p id="xPosisjon"> X-posisjon: </p>
+  <p id="yPosisjon"> Y-posisjon: </p>
+
+<script>
+// Henter de to p-elemenetene og body-elementet
+var xPosisjonEl = document.querySelector("#xPosisjon");
+var yPosisjonEl = document.querySelector("#yPosisjon");
+var bodyEl = document.querySelector("body");
+
+// Legger til en mousemove-hendelse på body-elementet
+bodyEl.addEventListener("mousemove", visPosisjon);
+
+// Funksjon som finner musepekerens posisjon
+function visPosisjon(e) {
+  xPosisjonEl.innerHTML = "X-posisjon: " + e.clientX;
+  yPosisjonEl.innerHTML = "Y-posisjon: " + e.clientY;
+}
+</script>
+</body>
+</html>
