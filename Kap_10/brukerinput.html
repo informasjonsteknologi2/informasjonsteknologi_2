@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>TITLE</title>
+      <link rel="stylesheet" href="stilark/style.css">
+      <!-- <link rel="stylesheet" href="stilark/input.css"> -->
+  </head>
+
+  <body>
+    <div class="innpakning">
+
+      <h1>Registrer film</h1>
+
+      <!-- Tekst for å skrive inn filmens tittel-->
+      Tittel
+      <input placeholder="Tittel" type="text">
+
+      <!-- Number For å regitrere årstall-->
+      Årstall
+      <input type="number">
+
+      <!-- textarea  For å skrive inn beskrivelse-->
+      Beskrivelse
+      <textarea></textarea>
+
+      <!-- Dropdown meny for å velge aldersgrense-->
+      Aldersgrense
+      <select>
+        <option value="alle">Tillat for alle</option>
+        <option value="syv">7 år</option>
+        <option value="femten">15 år</option>
+      </select>
+
+
+      <!-- Alternativ dropdownmeny -->
+      <!-- <input list="drikke">
+      <datalist id="drikke">
+        <option value="Kaffe">
+        <option value="Te">
+        <option value="Brus">
+      </datalist> -->
+
+      <!-- Avkryssningsbokser For å krysse av hvilket format filmen er gitt ut på-->
+      Format<br>
+      <input type="checkbox" name="format" value="kino">Kino<br>
+      <input type="checkbox" name="format" value="tv">Tv<br>
+      <input type="checkbox" name="format" value="stromme">Strømmetjeneste<br>
+      <input type="checkbox" name="format" value="dvd">DVD<br>
+
+
+      <!-- Radiobuttons Kunne svare på ja nei spørsmål om oscar-->
+      <!-- Her er det viktig at name er likt, hvis ikke kan man huke av på begge -->
+      Fått Oscar?<br>
+      <input type="radio" name="oscar" value="ja"> Ja<br>
+      <input type="radio" name="oscar" value="nei" checked> Nei<br>
+
+      <!-- Knapper For å kunne registrere filmen-->
+      <button>Registrer</button>
+
+    </div>
+  </body>
+
+</html>
