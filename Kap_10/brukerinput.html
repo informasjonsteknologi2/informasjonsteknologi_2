@@ -4,7 +4,7 @@
       <meta charset="UTF-8">
       <title>TITLE</title>
       <link rel="stylesheet" href="stilark/style.css">
-      <!-- <link rel="stylesheet" href="stilark/input.css"> -->
+      <link rel="stylesheet" href="stilark/input.css">
   </head>
 
   <body>
@@ -14,15 +14,15 @@
 
       <!-- Tekst for å skrive inn filmens tittel-->
       Tittel
-      <input placeholder="Tittel" type="text">
+      <input id="tittel" placeholder="Tittel" type="text">
 
       <!-- Number For å regitrere årstall-->
       Årstall
-      <input type="number">
+      <input id="aarstall" type="number">
 
       <!-- textarea  For å skrive inn beskrivelse-->
       Beskrivelse
-      <textarea></textarea>
+      <textarea id="beskrivelse"></textarea>
 
       <!-- Dropdown meny for å velge aldersgrense-->
       Aldersgrense
@@ -52,13 +52,14 @@
       <!-- Radiobuttons Kunne svare på ja nei spørsmål om oscar-->
       <!-- Her er det viktig at name er likt, hvis ikke kan man huke av på begge -->
       Fått Oscar?<br>
-      <input type="radio" name="oscar" value="ja"> Ja<br>
-      <input type="radio" name="oscar" value="nei" checked> Nei<br>
+      <input id="oscarJa" type="radio" name="oscar" value="ja"> Ja<br>
+      <input id="oscarNei" type="radio" name="oscar" value="nei" checked> Nei<br>
 
       <!-- Knapper For å kunne registrere filmen-->
       <button>Registrer</button>
 
     </div>
+    <script src="script_input.js"></script>
   </body>
 
 </html>
