@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Stein, skaks, papir</title>
+      <link rel="stylesheet" href="stylesheet.css">
+  </head>
+
+  <body>
+    <div class="innpakning">
+      <p id="spillerPoengsum"><b>Spiller:</b> 0 </p>
+      <p id="maskinPoengsum"><b>Maskin:</b> 0 </p>
+      <div class="bilder">
+        <img id="stein"src="bilder/spiller_stein.png" width="200" height="200" alt="spiller stein">
+        <img id="saks" src="bilder/spiller_saks.png" width="200" height="200" alt="spiller saks">
+        <img id="papir" src="bilder/spiller_papir.png" width="200" height="200" alt="spiller papir">
+        <img id="maskin" src="bilder/maskin_ukjent.png" width="200" height="200" alt="maskin ukjent">
+      </div>
+      <p id="beskjed"> </p>
+      <button>Reset</button>
+    </div>
+    <script>
+      //Setter poengsum ved oppstart av spillet
+      var VINNERSUM = 5;
+      var spillerPoengsum = 0;
+      var maskinPoengsum = 0;
+
+      //henter ut paragrafer
+      var spillerPoengsumEl = document.querySelector("#spillerPoengsum");
+      var maskinPoengsumEl = document.querySelector("#maskinPoengsum");
+      var beskjedEl = document.querySelector("#beskjed");
+
+      //henter ut og legger til eventlisteners til bilder
+      var steinEl = document.querySelector("#stein");
+      var saksEl = document.querySelector("#saks");
+      var papirEl = document.querySelector("#papir");
+      var maskinEl = document.querySelector("#maskin");
+      var buttonEl = document.querySelector("button");
+
+      steinEl.addEventListener("click", sjekkResultat);
+      saksEl.addEventListener("click", sjekkResultat);
+      papirEl.addEventListener("click", sjekkResultat);
+      buttonEl.addEventListener("click", omstart);
+      function omstart() {
+        beskjedEl.innerHTML="Trykk på stein saks eller papir for å spille mot maskinen. Førstemann til " + VINNERSUM + " poeng vinner spillet";
+        spillerPoengsum = 0;
+        maskinPoengsum = 0;
+        maskinPoengsumEl.innerHTML="<b>Maskin:</b> " + maskinPoengsum;
+        spillerPoengsumEl.innerHTML="<b>Spiller:</b> " + spillerPoengsum;
+      }
+
+      beskjedEl.innerHTML="Trykk på stein saks eller papir for å spille mot maskinen. Førstemann til " + VINNERSUM + " poeng vinner spillet";
+      //Det som gjøres når maskin vinner runden. Oppdatere poengsum og utskrift om hvem som vant
+      function maskinVinner() {
+        beskjedEl.innerHTML="Maskinen vant runden";
+        maskinPoengsum ++;
+        maskinPoengsumEl.innerHTML="<b>Maskin:</b> " + maskinPoengsum;
+
+      }
+      //Det som gjøres når spiller vinner runden. Oppdatere poengsum og utskrift om hvem som vant
+      function spillerVinner() {
+        beskjedEl.innerHTML="Du vant runden";
+        spillerPoengsum ++;
+        spillerPoengsumEl.innerHTML="<b>Spiller:</b> " + spillerPoengsum;
+      }
+      function tilbakestillMaskin() {
+        maskinEl.src = "bilder/maskin_ukjent.png";
+        steinEl.addEventListener("click", sjekkResultat);
+        saksEl.addEventListener("click", sjekkResultat);
+        papirEl.addEventListener("click", sjekkResultat);
+        steinEl.style.cursor="pointer";
+        saksEl.style.cursor="pointer";
+        papirEl.style.cursor="pointer";
+        beskjedEl.innerHTML="Ny runde. Trykk for å spille"
+      }
+
+      function sjekkResultat(e) {
+        //Henter ut spllerens valg
+        var spillerValg = e.target.id;
+
+        //Datamaskinen velger tilfeldig
+        var maskinValg = Math.floor(Math.random()*3+1)
+        if (maskinValg===1) {
+          maskinValg="stein";
+        } else if (maskinValg===2) {
+          maskinValg="saks";
+        }else {
+          maskinValg="papir";
+        }
+        //fjerner mulighet for å trykke på nytt med en gang
+        steinEl.removeEventListener("click", sjekkResultat);
+        saksEl.removeEventListener("click", sjekkResultat);
+        papirEl.removeEventListener("click", sjekkResultat);
+        //Endrer cursor tilbake til normalt
+        steinEl.style.cursor="auto";
+        saksEl.style.cursor="auto";
+        papirEl.style.cursor="auto";
+        //Maskinen får valgt bilde.
+        maskinEl.src="bilder/maskin_"+maskinValg + ".png";
+
+
+        //Sjekker hvem som vinner runden.
+        if (maskinValg===spillerValg) {
+          beskjedEl.innerHTML="Runden ble uavgjort";
+
+        } else if (spillerValg==="stein") {
+          if(maskinValg==="papir"){
+            maskinVinner();
+          } else {
+            spillerVinner();
+          }
+
+        } else if (spillerValg==="saks") {
+          if(maskinValg==="papir"){
+            spillerVinner();
+          } else {
+            maskinVinner();
+          }
+        } else if(spillerValg==="papir"){
+          if(maskinValg==="saks"){
+            maskinVinner()
+          } else {
+            spillerVinner()
+          }
+        }
+
+
+        if(spillerPoengsum==VINNERSUM||maskinPoengsum==VINNERSUM){
+          //Fjerner eventlisteners
+          steinEl.removeEventListener("click", sjekkResultat);
+          saksEl.removeEventListener("click", sjekkResultat);
+          papirEl.removeEventListener("click", sjekkResultat);
+          //Endrer cursor tilbake til normalt
+          steinEl.style.cursor="auto";
+          saksEl.style.cursor="auto";
+          papirEl.style.cursor="auto";
+
+          if(spillerPoengsum==VINNERSUM){
+            beskjedEl.innerHTML="Gratulerer! Du vant!!";
+          } else{
+            beskjedEl.innerHTML="Æsj du tapte mot maskinen...";
+          }
+
+        } else {
+          setTimeout(tilbakestillMaskin, 1500);
+        }
+      }
+
+
+    </script>
+  </body>
+</html>

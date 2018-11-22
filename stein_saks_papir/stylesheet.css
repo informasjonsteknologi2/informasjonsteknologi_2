@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body{
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #d0d0d0;
+}
+.innpakning{
+  margin:auto;
+  margin-top: 100px;
+  width: 1000px;
+  padding: 40px;
+  background-color: #ecf0f1;
+}
+.bilder{
+  margin:20px;
+  display: flex;
+  justify-content: space-between;
+}
+#maskin{
+  margin-left: 80px;
+}
+#stein, #saks, #papir{
+  cursor: pointer;
+}
