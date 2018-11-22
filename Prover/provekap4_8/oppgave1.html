@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>TITLE</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="oppgave1b.css">
+  </head>
+
+  <body>
+    <h1 id="avsnitt1">trykk på meg</h1>
+    <h1 id="avsnitt2">trykk på meg</h1>
+  </body>
+
+  <script>
+
+    //Henter ut første avsnitt og legger til lytter.
+    var avsnitt1El = document.querySelector("#avsnitt1");
+    avsnitt1El.addEventListener("click", klikkAvsnitt1);
+
+    //Endrer teksten i overskrift 1 til
+    // "Hyggelig at du trykket på meg" når noen trykker på den
+    function klikkAvsnitt1() {
+      avsnitt1El.innerHTML="Hyggelig at du trykket på meg!";
+    }
+
+    //Henter ut første avsnitt og legger til lytter.
+    var avsnitt2El = document.querySelector("#avsnitt2");
+    avsnitt2El.addEventListener("click", endreFarge);
+
+    //Lager variabel klikk for å telle antall klikk på overskrift 2
+    var klikk = 0;
+
+    //når noen trykker på overskrift to Endres farge på første overskrift
+    //helt til det ikke er flere farger igjen. Da endre teksten i overskrift 2
+    // til: "Nå er det nok"
+    function endreFarge() {
+      klikk++; //øker antall klikk med 1
+      if (klikk<=4) { //4 siden det er 4 klasser
+        var klassenavn = "klasse" + klikk;
+        avsnitt1El.className=klassenavn;
+      } else{
+        avsnitt2El.innerHTML="Nå er det nok";
+      }
+    }
+  </script>
+
+</html>

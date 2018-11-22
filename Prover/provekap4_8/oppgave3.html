@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>TITLE</title>
+      <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <p>Dra musa over meg</p>
+
+    <script>
+      //Henter ut paragrafelementet
+      var avsnittEl = document.querySelector("p");
+
+      //Legger til eventListener. En for mouseover, en for mouse out
+      avsnittEl.addEventListener("mouseover", musOver);
+      avsnittEl.addEventListener("mouseout", musUtenfor);
+
+      //Endrer paragraftekst til over når musa holdes over elementet
+      function musOver() {
+        avsnittEl.innerHTML="over";
+      }
+
+      //Endrer paragraftekst til utenfor når musa ikke holdes over elementet
+      function musUtenfor() {
+        avsnittEl.innerHTML="utenfor"
+      }
+    </script>
+  </body>
+
+</html>
