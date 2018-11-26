@@ -41,6 +41,8 @@
       saksEl.addEventListener("click", sjekkResultat);
       papirEl.addEventListener("click", sjekkResultat);
       buttonEl.addEventListener("click", omstart);
+
+      //Funksjon som restarer spillet og setter poengsum til 0
       function omstart() {
         beskjedEl.innerHTML="Trykk på stein saks eller papir for å spille mot maskinen. Førstemann til " + VINNERSUM + " poeng vinner spillet";
         spillerPoengsum = 0;
