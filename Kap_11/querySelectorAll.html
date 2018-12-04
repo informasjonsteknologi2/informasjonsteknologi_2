@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <link rel="stylesheet" href="../Kap_10/stilark/input.css">
+    <link rel="stylesheet" href="../Kap_10/stilark/style.css">
+    <style>
+      .gul{
+        background-color:yellow;
+      }
+      .rod{
+        background-color:red;
+      }
+    </style>
+</head>
+
+<body>
+  <div class="innpakning">
+    <p class="gul">Trykk på meg!</p>
+    <p class="gul">Trykk på meg!</p>
+    <p class="gul">Trykk på meg!</p>
+    <p class="gul">Trykk på meg!</p>
+    <p class="gul">Trykk på meg!</p>
+    <p class="gul">Trykk på meg!</p>
+    <p class="gul">Trykk på meg!</p>
+    <p class="gul">Trykk på meg!</p>
+    <p class="gul">Trykk på meg!</p>
+  </div>
+	<script>
+    var avsnittEl = document.querySelectorAll("p");
+
+    for (var i = 0; i < avsnittEl.length; i++) {
+      avsnittEl[i].addEventListener("click", byttFarge)
+    }
+
+    function byttFarge(e) {
+      e.target.className = "rod";
+    }
+
+	</script>
+</body>
+
+</html>

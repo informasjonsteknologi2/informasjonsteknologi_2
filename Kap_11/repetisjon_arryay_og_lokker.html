@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+</head>
+
+<body>
+  <script>
+    //Hva skjer for hver linje? Gå sammen og diskuter
+    var tall = [3, 45, 2, 3, 6, 10, -8]
+    console.log(tall[2]); //Skriver ut tallet 2
+    tall[1] = 23; //Bytter ut 45 med 23
+    tall.pop(); //Tar bort den bakerste [3, 23, 2, 3, 6, 10]
+    tall.shift(); //Fjerner den første [23, 2, 3, 6, 10]
+    console.log(tall[0]); //logger 23
+
+    tall.push(-15); //Legger til bakerst i arrayen [23, 2, 3, 6, 10, -15]
+    tall.unshift(43); // Legger til 43 helt forran i arrayen
+    console.log(tall); //[43, 23, 2, 3, 6, 10, -15]
+    tall.splice(2, 1, 5, 89); // index nr 2, fjerner et tall, legger til 5 og 89
+    console.log(tall); // [43, 23, 5, 89, 3, 6, 10, -15]
+    for (var i = 0; i < tall.length; i++) {
+      if (tall[i]<10) {
+        tall[i] += 10;
+      }
+    }
+    console.log(tall);//[43, 23, 15, 89, 13, 16, 10, -5]
+
+
+  </script>
+</body>
+
+</html>
