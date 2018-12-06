@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <link rel="stylesheet" href="stilark/style.css">
+    <link rel="stylesheet" href="stilark/table.css">
+    <link rel="stylesheet" href="stilark/input.css">
+</head>
+
+<body>
+  <div class="innpakning">
+
+    <table>
+      <tr>
+        <th>Dato</th>
+        <th>Tidspunkt</th>
+        <th>Arrangement</th>
+        <th>Informasjon</th>
+      </tr>
+
+      <tr id="arr1">
+        <td>1. Juni</td>
+        <td>11.00</td>
+        <td>Trondheim kammermusikkfestival: Fabelaktig formiddag</td>
+        <td>Dette er barnas og familiens festivaldag. En billett gjelder for alt
+            , og du kan velge mellom en rekke ulike forestillinger.
+        </td>
+      </tr>
+      <tr id="arr2">
+        <td>4. Juni</td>
+        <td>14.30</td>
+        <td>Spill opp!</td>
+        <td>Mastereksamen NTNU fløyte v/Matthias Lauga</td>
+      </tr>
+    </table>
+    <p>Pris barn: 50kr</p>
+    <p>Pris voksen: 100kr</p>
+    <p>20% Rabatt grupperabatt hvis du bestiller 5 eller
+      flere bilettter</p>
+    <div class="skjemaer">
+
+      <div>
+        <p>Velg forestilling</p>
+        <select>
+          <option value="Fabelaktig formiddag">Fabelaktig formiddag</option>
+          <option value="Spill Opp!">Spill Opp!</option>
+        </select>
+      </div>
+
+      <div>
+        <p>Barn:</p>
+        <input id="barn" type="number" name="barn">
+      </div>
+
+      <div>
+        <p>Voksen:</p>
+        <input id="voksen" type="number" name="voksne">
+      </div>
+
+      <button type="button" name="button">Bestill</button>
+
+    </div>
+    <p class="bestillingUtskrift"></p>
+
+  </div>
+  <script src="V18_oppg2.js">
+
+  </script>
+</body>
+
+</html>

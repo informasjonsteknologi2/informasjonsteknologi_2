@@ -1,0 +1,47 @@
+input[type="text"],
+input[type="number"],
+select,
+textarea{
+  /* display: block; */
+  margin: 2px;
+  margin-bottom: 10px;
+  font-family: inherit;
+  font-size: inherit;
+  color: #666666;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+}
+
+input[type="text"]{
+  min-width: 130px;
+  width: 100%;
+}
+
+input[type="number"]{
+  min-width: 100px;
+  width: 100px;
+}
+
+textarea{
+  min-width: 130px;
+  width: 100%;
+  height: 60px;
+}
+
+button{
+  font-size: inherit;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 10px;
+  text-shadow: 0 -1px 1px #666666;
+  background: linear-gradient(rgba(255, 255, 255, 0.6),transparent);
+  background-color: #a6a6a6;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+  outline: none;
+  height: 50px;
+}
+button:active{
+  transform: translate(1px, 1px);
+}
