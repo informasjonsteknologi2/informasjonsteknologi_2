@@ -12,13 +12,14 @@
  <script>
    fag = [
       ["norsk", "engelsk", "historie"],
-      ["informasjonsteknoligi 2"], ["R1"], ["Biologi 2"],["fysikk 1"],
+      ["informasjonsteknoligi 2","R1", "Biologi 2", "fysikk 1"],
       ["psykologi", "Rettslære"]
    ]
 
    for (var i = 0; i < fag.length; i++) {
-     console.log(fag[i]) //Denne vil skrive ut en hel linje.
-     //Hvordan kan vi utvide forløkka så vi kan skrive ut et og et fag?
+     for (var j = 0; j < fag[i].length; j++) {
+       console.log(fag[i][j]);
+     }
    }
  </script>
 </body>
