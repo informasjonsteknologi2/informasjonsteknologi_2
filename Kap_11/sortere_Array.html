@@ -7,19 +7,25 @@
 </head>
 
 <body>
+  <!-- Henter inn funksjoner bl.a sortereTallStigende -->
   <script src="mineFunksjoner.js"></script>
 	<script>
 
     var drikke = ["te", "brus", "vann", "kaffe"];
+    //Sorterer tall alfabetisk
     drikke.sort()
     console.log(drikke);
 
     var tall = [2, 6, 4, 5, 10, 25, 5];
+    //Sortere tallene alfabetisk
     tall.sort()
     console.log(tall);
 
+    //Sortere tall i stigenede verdi
     tall.sort(sortereTallStigende)
     console.log(tall);
+
+    //Sorterer tall i synkende rekkefølge
     tall.reverse(sortereTallStigende)
     console.log(tall);
 
