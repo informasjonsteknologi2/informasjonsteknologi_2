@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+
+	<script>
+
+    var land={
+      navn: "Norge",
+      hovedstad: "Oslo",
+      myntenhet: "NOK",
+      storsteByer: ["Trondheim", "Oslo", "Bergen"]
+    }
+
+    land["navn"] = "Sverige";
+    land.statsminister = "Erna Solberg";
+
+    for (var egenskap in land) {
+      console.log(land[egenskap]);
+    }
+
+	</script>
+</body>
+
+</html>
