@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Objekter og metoder</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+</head>
+
+<body>
+
+	<script>
+
+	  var person  = {
+      fornavn:"Ola",
+      etternavn:"Hansen",
+      fodselsaar:1986,
+      fulltNavn: function(){
+        console.log(this.fornavn);
+      }
+    }
+
+    var personer = [
+      person,
+      {fornavn:"Per", etternavn:"Abrahamsen", fodselsaar:1999},
+      {fornavn:"Marit", etternavn:"Kjær", fodselsaar:2000}
+    ]
+    //Sortere Objekter
+    personer.sort(sorterEtternavn)
+
+    function sorterEtternavn(a,b) {
+      if (a.etternavn>b.etternavn) {
+        return 1;
+      } else if (a.etternavn<b.etternavn) {
+        return -1;
+      } else{
+        return 0;
+      }
+    }
+
+
+    //
+    // //Sortere objekter
+    // personer.sort(sammenlignEtternavn)
+    //
+    // function sammenlignEtternavn(a,b){
+    //   if(a.etternavn>b.etternavn){
+    //     return 1;
+    //   } else if (a.etternavn<b.etternavn) {
+    //     return -1;
+    //   } else {
+    //     return 0;
+    //   }
+    // }
+    //
+    // //Lage en tabell fra en array med objekter. Vi bruker personer som eksempel
+    //
+    //
+
+	</script>
+</body>
+
+</html>

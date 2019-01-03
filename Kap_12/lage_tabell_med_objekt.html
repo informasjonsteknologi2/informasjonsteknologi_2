@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+</head>
+
+<body>
+
+ <script>
+   var bodyEl = document.querySelector("body");
+
+   var personer = [
+     {fornavn:"Ola", etternavn:"Hansen",  fodselsaar:1986,},
+     {fornavn:"Per", etternavn:"Abrahamsen", fodselsaar:1999},
+     {fornavn:"Marit", etternavn:"Kjær", fodselsaar:2000}
+   ]
+
+   var tabellEl = document.createElement("table");
+   var tbodyEl = document.createElement("tbody");
+
+   var overskrifter = "<tr>";
+   overskrifter += "<th>Fornavn</th>";
+   overskrifter += "<th>Etternavn</th>";
+   overskrifter += "<th>Fødselsår</th>";
+
+   tbodyEl.innerHTML +=overskrifter;
+
+   for (var i = 0; i < personer.length; i++) {
+     var rad = "<tr>";
+     for (var egenskap in personer[i]) {
+       rad+="<td>" + personer[i][egenskap] + "</td>"
+     }
+     rad +="</tr>";
+     tbodyEl.innerHTML+=rad;
+   }
+
+   tabellEl.appendChild(tbodyEl);
+   bodyEl.appendChild(tabellEl);
+
+ </script>
+</body>
+
+</html>
