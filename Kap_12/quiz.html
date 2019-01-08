@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="stilark/style.css">
+    <link rel="stylesheet" href="stilark/input.css">
+
+</head>
+
+<body>
+  <div class="innpakning">
+      <h1>Quiz</h1>
+      <p class="resultat"></p>
+
+  </div>
+
+  <script>
+    var innpakningEl = document.querySelector(".innpakning");
+    var resultatEl = document.querySelector(".resultat");
+
+    //inneholder alle spørsmålene til quizen
+    var quiz = [
+      {
+        sporsmaal:"Hva er Norges hovedstad",
+        alternativer:["Bergen", "Oslo", "Trondheim"],
+        fasit:["feil", "riktig", "feil"]
+      },
+      {
+        sporsmaal:"Hvilke byer ligger i Europa?",
+        alternativer:["Oslo", "New York", "London"],
+        fasit:["riktig", "feil", "riktig"]
+      },
+      {
+        sporsmaal:"Hvilken innsjø er Norges største?",
+        alternativer:["Røssvatnet", "Mjøsa", "Femunden"],
+        fasit:["feil", "riktig", "feil"]
+      }
+    ];
+
+    for (var i = 0; i < quiz.length; i++) {
+      var nyttSpm = document.createElement("p");
+      nyttSpm.innerHTML = "<h3>"+ quiz[i].sporsmaal+ "</h3>";
+
+      for (var j = 0; j < quiz[i].alternativer.length; j++) {
+        var nyCheckbox = document.createElement("input");
+        nyCheckbox.type = "checkbox";
+        nyCheckbox.value = quiz[i].fasit[j];
+        nyttSpm.appendChild(nyCheckbox);
+        nyttSpm.innerHTML += quiz[i].alternativer[j] + "<br>";
+      }
+
+      innpakningEl.appendChild(nyttSpm);
+    }
+
+    var knappEl = document.createElement("button");
+    knappEl.innerHTML = "Sjekk svar";
+    knappEl.addEventListener("click", sjekkSvar);
+    innpakningEl.appendChild(knappEl);
+
+    function sjekkSvar() {
+      var allCheckboxEl = document.querySelectorAll("input[type = 'checkbox']");
+      var antallPoeng = 0;
+
+      for (var i = 0; i < allCheckboxEl.length; i++) {
+        if (allCheckboxEl[i].checked) {
+          if (allCheckboxEl[i].value =="riktig") {
+            antallPoeng++;
+          } else {
+            antallPoeng--;
+          }
+        }
+      }
+
+      resultatEl.innerHTML = "Poeng: " + antallPoeng;
+    }
+
+	</script>
+</body>
+
+</html>
