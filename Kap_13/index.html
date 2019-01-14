@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <audio controls loop>
+    <source src="fagott.mp3" type="audio/mpeg">
+  </audio>
+
+  <video controls>
+    <source src="Animasjon2_1.mp4" type="video/mp4">
+  </video>
+
+  <button type="button" name="button">Pause</button>
+
+	<script>
+    var audioEl = document.querySelector("audio");
+    audioEl.play();
+    var knappEl = document.querySelector("button");
+    knappEl.addEventListener("click", settPause)
+
+    function settPause() {
+      audioEl.pause()
+    }
+
+	</script>
+</body>
+
+</html>
