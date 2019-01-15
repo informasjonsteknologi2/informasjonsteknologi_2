@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+      #mittCanvas{
+        background-color: #e0e0e0;
+        display: block;
+        margin: auto;
+      }
+    </style>
+
+</head>
+
+<body>
+  <canvas id="mittCanvas" width="500" height="300"></canvas>
+
+  <script>
+    var canvas = document.querySelector("#mittCanvas");
+    var ctx = canvas.getContext("2d");
+
+    for (var i = 0; i < 20; i++) {
+      var x = Math.floor(Math.random()*canvas.width);
+      var y = Math.floor(Math.random()*canvas.height);
+
+      //Slik at firkantene får forskjellige farger
+      ctx.fillStyle = "hsl(" + i*30 + ", 100%, 70%)";
+
+      ctx.fillRect(x, y, 20, 20);
+
+
+    }
+
+
+  </script>
+</body>
+
+</html>

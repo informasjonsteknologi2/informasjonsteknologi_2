@@ -5,12 +5,46 @@
     <meta charset="UTF-8">
     <title>TITLE</title>
     <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+      #mittCanvas{
+        background-color: #e0e0e0;
+        display: block;
+        margin: auto;
+      }
+    </style>
 
 </head>
 
 <body>
+  <canvas id="mittCanvas" width="500" height="300"></canvas>
 
 	<script>
+    var canvas = document.querySelector("#mittCanvas");
+
+    //For å si hviken drawing context vi skal tegne i. Er et objekt
+    var ctx = canvas.getContext("2d");
+
+    //Tegner et svart rektangel
+    ctx.fillRect(5, 10, 50, 100);
+
+    //Tegner et omriss av et rektangel
+    ctx.strokeRect(60, 10, 50, 100);
+
+
+    //Tegner rektangler. Se tabell 14.1 for flere metoder
+
+    //Endrer tykkelsen på streken
+    ctx.lineWidth = 3;
+    ctx.strokeRect(100, 5, 100, 50);
+
+    //Endrer farge på rektangelet
+    ctx.fillStyle = "red";
+    ctx.fillRect(5, 150, 200, 200)
+
+    //Fjerner alt som er tegnet inne i rektangelet
+    ctx.clearRect(10, 160, 50, 50);
+
+
 
 	</script>
 </body>
