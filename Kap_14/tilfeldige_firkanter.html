@@ -22,7 +22,9 @@
     var canvas = document.querySelector("#mittCanvas");
     var ctx = canvas.getContext("2d");
 
+    // Tegner 20 tilfeldig plasserte firkanter
     for (var i = 0; i < 20; i++) {
+      //Tilfeldig x-koordinat og y-koordinat
       var x = Math.floor(Math.random()*canvas.width);
       var y = Math.floor(Math.random()*canvas.height);
 
