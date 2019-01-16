@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+      #mittCanvas{
+        background-color: #e0e0e0;
+        display: block;
+        margin: auto;
+      }
+    </style>
+</head>
+
+<body>
+  <canvas id="mittCanvas" width="500" height="300"></canvas>
+
+  <script>
+    var canvas = document.querySelector("#mittCanvas");
+    var ctx = canvas.getContext("2d");
+
+    ctx.moveTo(50, 50);
+    ctx.lineTo(50, 100);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle="red";
+    ctx.moveTo(200, 50);
+    ctx.lineTo(300, 50);
+    ctx.stroke();
+
+
+    ctx.beginPath();
+    ctx.moveTo(50, 200);
+    ctx.lineTo(100, 50);
+    ctx.lineTo(200, 15);
+    ctx.lineTo(300,47);
+    ctx.closePath()
+    ctx.stroke();
+    ctx.fillStyle="yellow";
+    ctx.fill();
+
+
+
+
+    ctx.beginPath();
+    for (var i = 0; i < canvas.width; i+=20) {
+      ctx.moveTo(i,0);
+      ctx.lineTo(i,canvas.height);
+    }
+    ctx.stroke();
+
+  </script>
+
+</body>
+
+</html>
