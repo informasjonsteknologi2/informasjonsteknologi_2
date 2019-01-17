@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Søylediagram</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+      #mittCanvas{
+        background-color: #e0e0e0;
+        display: block;
+        margin: auto;
+      }
+    </style>
+</head>
+
+<body>
+  <canvas id="mittCanvas" width="500" height="300"></canvas>
+
+  <script>
+    var canvas = document.querySelector("#mittCanvas");
+    var ctx = canvas.getContext("2d");
+
+    var data = [
+      {beskrivelse:"Mandag", verdi: 5},
+      {beskrivelse:"Tirsdag", verdi: 3},
+      {beskrivelse:"Onsdag", verdi: 1},
+      {beskrivelse:"Torsdag", verdi: 2},
+      {beskrivelse:"Fredag", verdi: 5},
+      {beskrivelse:"Lørdag", verdi: 6},
+      {beskrivelse:"Søndag", verdi: 4}
+    ]
+
+    var tekstbredde = 150;
+    var totallengde = canvas.width;
+    var soylebredde = totallengde-tekstbredde-10;
+
+    canvas.height = data.length*30;
+
+    var max = 0;
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].verdi>max) {
+        max = data[i].verdi;
+      }
+    }
+
+    ctx.font = "24px Arial";
+    ctx.textAlign = "end";
+    ctx.textBaseline = "hanging";
+
+    for (var i = 0; i < data.length; i++) {
+      //Legger inn tekst
+      ctx.fillStyle = "#323232";
+      ctx.fillText(data[i].beskrivelse +"(" + data[i].verdi + ")", tekstbredde, i*30+3);
+
+      //Beregner lengde på søylen
+      var bredde = (data[i].verdi/max)*soylebredde;
+      ctx.fillStyle = "hsl(" + i*30 + ", 100%, 70%)";
+      ctx.fillRect(tekstbredde+5, i*30+3, bredde, 24);
+    }
+
+
+  </script>
+</body>
+
+</html>
