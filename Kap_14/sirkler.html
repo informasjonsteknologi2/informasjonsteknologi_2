@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+      #mittCanvas{
+        background-color: #e0e0e0;
+        display: block;
+        margin: auto;
+      }
+    </style>
+
+</head>
+
+<body>
+  <canvas id="mittCanvas" width="500" height="300"></canvas>
+
+	<script>
+    var canvas = document.querySelector("#mittCanvas");
+    var ctx = canvas.getContext("2d");
+
+    ctx.arc(50, 50, 30, 0, 2*Math.PI);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(150, 150, 40, 0, Math.PI/3);
+    ctx.lineTo(150, 150);
+    ctx.fill()
+
+    ctx.beginPath();
+    ctx.fillStyle="red";
+    ctx.arc(150, 150, 40, Math.PI/3, Math.PI);
+    ctx.lineTo(150, 150);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle="green";
+    ctx.arc(150, 150, 40, Math.PI, Math.PI*2)
+    ctx.lineTo(150, 150);
+    ctx.fill();
+
+    ctx.font="30px Arial";
+    ctx.fillText("Hei på deg", 200, 200);
+
+	</script>
+</body>
+
+</html>
