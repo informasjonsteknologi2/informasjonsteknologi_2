@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>TITLE</title>
+      <style>
+        body{
+          cursor:none;
+          overflow: hidden;
+        }
+        .firkant{
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          left:0;
+          right: 0;
+          background-color: black;
+        }
+      </style>
+
+  </head>
+
+  <body>
+    <div class="firkant">
+
+    </div>
+
+    <script>
+      var bodyEl = document.querySelector("body");
+      var firkantEl = document.querySelector(".firkant");
+
+      var topp = 0;
+      var venstre = 0;
+      var fart = 10;
+
+      bodyEl.addEventListener("keydown", flyttBoks);
+      function flyttBoks(e) {
+        console.log(e.keyCode);
+        if (e.keyCode ==39) {
+          //flytt høyre
+          venstre += fart;
+        } else if (e.keyCode == 40) {
+          //Flytt ned
+          topp += fart;
+        } else if (e.keyCode == 37) {
+          //Flytt venstre
+          venstre -= fart;
+        } else if (e.keyCode == 38) {
+          //Flytt opp
+          topp -= fart;
+        }
+
+        firkantEl.style.left = venstre + "px";
+        firkantEl.style.top = topp + "px";
+      }
+    </script>
+  </body>
+
+</html>

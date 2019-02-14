@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>TITLE</title>
+      <link rel="stylesheet" href="kule.css">
+  </head>
+
+  <body>
+
+    <div class="sirkel">  </div>
+    <script>
+      var bodyEl = document.querySelector("body");
+      var divEl = document.querySelector(".sirkel");
+
+      bodyEl.addEventListener("mousemove", flyttSirkel);
+
+      function flyttSirkel(e) {
+        divEl.style.left = e.clientX-25 + "px";
+        divEl.style.top = e.clientY-25+"px";
+        divEl.style.backgroundColor = "hsl("+e.clientX+", "+e.clientY/5+"%, 50%)"
+      }
+    </script>
+  </body>
+
+</html>

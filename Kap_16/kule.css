@@ -1,0 +1,19 @@
+html, body{
+
+    width:100%;
+    height: 100%;
+}
+body{
+  cursor:none;
+  overflow: hidden; /*Fjerne mulighet til å scrolle*/
+
+}
+div{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: relative;
+  left:0;
+  top:0;
+  background-color: black;
+}

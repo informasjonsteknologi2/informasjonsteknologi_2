@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body{
+  background-color: #c0c0c0;
+  font-size: 20px;
+  font-family: "Roboto", Arial, seriff;
+}
+.innpakning{
+  width: 70%;
+  border: 5px solid black;
+  background-color: #f0f0f0;
+  margin: auto;
+  padding: 30px;
+}
+.rad{
+  display: flex;
+  justify-content: space-around;
+}
+
+.booking, .undersokelse{
+  background-color: #B2B2B2;
+  padding:5px;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+.knapper{
+  display: flex;
+  justify-content: space-around;
+}
+.active, .btn:hover {
+  background-color: #666;
+  color: white;
+}
+
+.firkant{
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+}
+
+.kvittering{
+  font-style: italic;
+}
