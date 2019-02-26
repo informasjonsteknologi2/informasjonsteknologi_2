@@ -1,0 +1,66 @@
+.parent{
+  background-color: lightblue;
+  height: 200px;
+  width: 300px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.child{
+  background-color: red;
+  margin: 5px;
+}
+
+.boks1{
+  flex-grow: 1
+}
+.boks2{
+  flex-grow: 10
+}
+
+.boks3{
+  flex-grow: 1
+}
+
+
+ .innpkaning{
+  width: 1000px;
+  border: 2px solid black;
+  margin: auto;
+  background-color: grey;
+}
+.meny{
+  display: flex;
+}
+
+a{
+  background-color: red;
+  flex-grow: 1;
+  padding: 10px;
+
+}
+
+a:hover{
+  background-color: blue;
+}
+
+.innhold{
+  display: flex;
+}
+.venstre{
+  flex-grow: 1;
+}
+.hoyre{
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+}
+.celle{
+  height: 50px;
+}
+div{
+  border: 2px solid black;
+}
