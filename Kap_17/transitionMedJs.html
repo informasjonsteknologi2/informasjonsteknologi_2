@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="transitionMedJs.css">
+
+  </head>
+
+  <body>
+    <div class="boks">
+
+    </div>
+    <button>start</button>
+
+   <script>
+
+
+
+   var boksEl = document.querySelector(".boks");
+   var knappEl = document.querySelector("button");
+
+   knappEl.addEventListener("click", flytt);
+
+   function flytt() {
+     boksEl.classList.toggle("flyttHoyre");
+     // if (knappEl.innerHTML=="start") {
+     //   boksEl.classList.add("flyttHoyre");
+     //   knappEl.innerHTML = "tilbake";
+     // } else{
+     //   boksEl.classList.remove("flyttHoyre");
+     //   knappEl.innerHTML = "start";
+     // }
+
+
+   }
+   </script>
+  </body>
+
+</html>
