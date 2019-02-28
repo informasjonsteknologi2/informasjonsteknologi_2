@@ -24,6 +24,11 @@
 
    knappEl.addEventListener("click", flytt);
 
+   boksEl.addEventListener("transitionend", ferdig);
+   function ferdig() {
+     boksEl.innerHTML = "Jeg er ferdig flyttet";
+   }
+
    function flytt() {
      boksEl.classList.toggle("flyttHoyre");
      // if (knappEl.innerHTML=="start") {
