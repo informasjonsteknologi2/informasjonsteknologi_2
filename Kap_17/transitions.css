@@ -1,0 +1,13 @@
+.boks{
+  background-color: red;
+  width: 200px;
+  height: 100px;
+  transition: all 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+}
+
+.boks:hover{
+  width:400px;
+  border-radius: 50%;
+  background-color: green;
+}
