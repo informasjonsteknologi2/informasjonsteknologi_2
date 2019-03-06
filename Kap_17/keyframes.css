@@ -1,12 +1,13 @@
-.boks{
+img{
   width: 50px;
   height: 50px;
-  background-color: blue;
-  animation: forstorr 2s infinite alternate;
+  animation: sprett 2s forwards;
+  animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  position: absolute;
 }
 
-@keyframes forstorr {
-  0% {width:50px;height: 50px;}
-  25%{width: 90px; height: 90px;}
-  100% {width:100px;height: 100px;}
+@keyframes sprett {
+  0% {top:0; left: 0;}
+  50% {top:500px; left:200px;}
+  100% {top:0; left:400px;}
 }
