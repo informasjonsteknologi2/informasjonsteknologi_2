@@ -1,0 +1,36 @@
+body{
+  background-color: #323232;
+}
+.innpakning{
+  background-color: #fff3b1;
+  width: 600px;
+  height: 200px;
+  margin: 100px auto;
+  display: flex;
+}
+
+.boks{
+  flex-grow: 1;
+  margin: 5px;
+}
+
+.boks1{
+  background-color: #ed1e24;/*rød*/
+  transform: translate(-20px, 50px)  skew(20deg, 40deg);
+}
+
+.boks2{
+  background-color: #371eed;
+  transform: rotate(20deg);
+}
+
+.boks3{
+  background-color: #1eed37;
+  transform: scale(0.8, 1.4);
+  animation: roter 5s infinite linear;
+}
+
+@keyframes roter {
+  0% {transform: rotate(0deg);}
+  100%{transform: rotate(180deg)}
+}
