@@ -59,6 +59,11 @@ for (var i = 0; i < data.length; i++) {
     var inputEl = document.createElement("input");
     inputEl.type = "radio";
     inputEl.name = "spm"+i;
+
+    //For å kunne ha checked på det første alternativet slik at brukeren alltid må svare på alle tre spm
+    if (j==0) {
+      inputEl.className = "huketAv";
+    }
     divspmEl.appendChild(inputEl);
     divspmEl.innerHTML += data[i].alternativer[j].alternativ + "<br>";
   }
@@ -67,11 +72,22 @@ for (var i = 0; i < data.length; i++) {
   undersokelseEl.appendChild(divEl);
 }
 
+//Huker av det første alternativet
+var huketAv = document.querySelectorAll(".huketAv");
+for (var i = 0; i < huketAv.length; i++) {
+  huketAv[i].checked = true;
+}
+
 //Legger til svar knapp
 var knappEl = document.createElement("button");
 knappEl.id = "sendSvar";
 knappEl.innerHTML = "Send inn";
 undersokelseEl.appendChild(knappEl);
+
+//Legger til svanitt for totalt antall svart
+var antallSvarEl = document.createElement("p");
+antallSvarEl.id = "antallSvar";
+undersokelseEl.appendChild(antallSvarEl)
 
 //Henter ut hva brukeren har svart når han har trykket på
 //send inn og oppdaterer verdi og tegner søylediagram
@@ -79,7 +95,12 @@ var svarknappEl = document.querySelector("#sendSvar");
 svarknappEl.addEventListener("click", oppdaterSvar);
 canvasEl = document.querySelectorAll("canvas");
 
+//Teller hvor mange ganger noen har trykket på Send for å finne totalt antall svart
+var totalAntallSvart = 0;
+var antallSvarEl = document.querySelector("#antallSvar");
+
 function oppdaterSvar() {
+  totalAntallSvart++;
   for (var i = 0; i < data.length; i++) {
     var navn = "spm"+i;
     var svarEl = document.querySelectorAll("input[name ='"+navn+"' ]")
@@ -90,6 +111,8 @@ function oppdaterSvar() {
     }
     tegnSoylediagram(data[i].alternativer, canvasEl[i], 190)
   }
+  antallSvarEl.innerHTML = "Så langt har " + totalAntallSvart + " personer svart på undersøkelsen."
+
 }
 
 function tegnSoylediagram(data, canvas, tekstbredde) {
@@ -116,7 +139,7 @@ function tegnSoylediagram(data, canvas, tekstbredde) {
   for (var i = 0; i < data.length; i++) {
     //Legger inn tekst
     ctx.fillStyle = "#323232";
-    ctx.fillText(data[i].alternativ +"(" + data[i].verdi + ")", tekstbredde, i*hoyde+luft);
+    ctx.fillText(data[i].alternativ +"(" + data[i].verdi +", "+Math.round(data[i].verdi/totalAntallSvart*100)+ "%)", tekstbredde, i*hoyde+luft);
 
     //Beregner lengde på søylen
     var bredde = (data[i].verdi/max)*soylebredde;
