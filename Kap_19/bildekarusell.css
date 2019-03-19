@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body{
+  background-color: #c0c0c0;
+  font-size: 20px;
+  font-family: "Roboto", Arial, seriff;
+}
+.innpakning{
+  display: flex;
+  width: 80%
+  min-width:460px;
+  flex-direction: column;
+}
+.knapper{
+  width:450px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+button{
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 4px;
+  }
+.valgt{
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: grey;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 4px;
+}
+button:hover{
+  background-color: grey;
+}
+.bildekarusell{
+  width: 450px;
+  height: 300px;
+  border: 5px solid black;
+  background-color: #f0f0f0;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+.bilde{
+  width:450px;
+  height:300px;
+  background-size: 450px 300px;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+@keyframes innFraHoyre {
+  0%  {left:450px}
+  100%{left:0}
+}
+@keyframes utFraHoyre {
+  0%  {left:0}
+  100%{left:450px}
+}
+@keyframes utFraVenstre {
+  0%  {left: 0}
+  100%{left:-450px}
+}
+@keyframes innTilVenstre {
+  0%  {left: -450px}
+  100%{left:0}
+}
