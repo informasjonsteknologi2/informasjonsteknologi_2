@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+  </head>
+
+  <body>
+
+   <script>
+   "use strict"
+
+
+   //Lager et objekt
+   var dyr = {
+     navn:"Pluto",
+     eier:"Mikke",
+
+     hilsEier: function() {
+       return "Hei " + this.eier;
+     }
+   }
+
+    //En slags mal for objekter av dyr
+   class Dyr {
+     constructor(navn, eier) {
+       this.navn = navn;
+       this.eier = eier;
+     }
+
+     hilsEier(){
+       return "Hei " + this.eier;
+     }
+   }
+
+   //Disse klassene Hund og Katt arver egenskaper og metoder fra klassen Dyr
+   class Katt extends Dyr {
+     constructor(navn, eier) {
+       super(navn, eier);
+     }
+
+     lagLyd(){
+       return "Mjau";
+     }
+   }
+
+   class Hund extends Dyr {
+     constructor(navn, eier) {
+       super(navn, eier);
+     }
+
+     lagLyd(){
+       return "Voff";
+     }
+   }
+   //Mye lettere hvis man skal lage seg mange dyr med de samme egenskapene og metodene.
+   var pluto = new Hund("Pluto", "Mikke");
+   var bolivar = new Hund("Bolivar", "Donald");
+   var katt = new Katt("Pusur", "Jon");
+
+   </script>
+  </body>
+
+</html>
