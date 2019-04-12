@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Viten</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animasjon.css">
+
+  </head>
+
+  <body>
+    <div class="meny">
+        <a href="oppgave1.html">Hjem</a>
+        <a href="oppgave2.html">Billetter</a>
+        <a href="oppgave3.html">Test deg selv</a>
+    </div>
+
+
+    <div class="innpakning">
+
+      <div class="aniamsjon">
+        <p id="fakta"></p>
+        <img class="jorda" src="media/jordklode.png" width="150px" height="150px" alt="Jordkloden">
+        <img class="mane" src="media/maane.png" width="120px" height="120px" alt="Månen">
+        <img class="rakett" src="media/romferge.png" width="56px" height="80px" alt="Romferge">
+      </div>
+      <div class="knapper">
+        <button id="tilManen">Reis til Månen</button>
+        <button id="tilJorda">Reis til Jorda</button>
+
+      </div>
+
+    </div>
+
+   <script>
+
+     var tilManeEl = document.querySelector("#tilManen");
+     var tilJordaEl = document.querySelector("#tilJorda");
+     var rakettEl = document.querySelector(".rakett");
+     var faktaEl = document.querySelector("#fakta")
+
+     tilManeEl.addEventListener("click", flyTilMane);
+
+
+     function flyTilMane() {
+       faktaEl.innerHTML ="";
+       tilManeEl.removeEventListener("click", flyTilMane)
+       rakettEl.style.animation = "tilMane 10s forwards";
+       tilJordaEl.addEventListener("click", flyTilJorda);
+     }
+
+     function flyTilJorda() {
+       faktaEl.innerHTML ="";
+       tilJordaEl.removeEventListener("click", flyTilJorda);
+       rakettEl.style.animation = "tilJorda 10s forwards";
+       tilManeEl.addEventListener("click", flyTilMane);
+     }
+
+     rakettEl.addEventListener("animationend",faktaTekst);
+
+     function faktaTekst() {
+       faktaTekster = [
+         "-	Månen er jordas eneste naturlige satellitt",
+         "-	Den gjennomsnittlige avstanden fra jorda til månen er 384403 km",
+         "-	Neil Armstrong var førstemann på månen",
+         "-	De fleste forskere er enige om at det er vann på månen",
+         "-	Romekspedisjonen Apollo 11 var den første ekspedisjonen som sendte mennesker til månen."
+       ];
+       tilfeldigTekst = faktaTekster[Math.floor(Math.random()*faktaTekster.length)];
+       faktaEl.innerHTML = tilfeldigTekst;
+
+     }
+
+   </script>
+  </body>
+
+</html>

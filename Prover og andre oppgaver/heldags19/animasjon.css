@@ -1,0 +1,45 @@
+
+.aniamsjon{
+  width: 800px;
+  height: 500px;
+  /* border: 2px solid #b2b0b0; */
+  /* margin: 5px; */
+  position: relative;
+}
+img{
+  position: absolute;
+}
+.jorda{
+  bottom: 0px;
+}
+.mane{
+  top: 150px;
+  right: 0px;
+}
+.rakett{
+  top: 264px;
+  left:47px;
+}
+#fakta{
+  position: absolute;
+  width: 400px;
+  top:80px;
+  left:200px;
+}
+@keyframes tilMane {
+  0% {top: 264px; left:47px;}
+  10% {top: 234px; left: 47px; transform: rotate(0deg);}
+  20%{transform: rotate(74deg);top: 234px; left: 47px;}
+  80%{transform: rotate(74deg);left: 712px; top:40px}
+  90%{left: 712px; top:40px;transform: rotate(0deg)}
+  100%{left: 712px; top:70px;}
+}
+
+@keyframes tilJorda {
+  0% {left: 712px; top:70px;}
+  10% {left: 712px; top:40px;transform: rotate(0deg)}
+  20%{transform: rotate(-119deg);left: 712px; top:40px}
+  80%{transform: rotate(-119deg);top: 234px; left: 47px;}
+  90%{top: 234px; left: 47px; transform: rotate(0deg);}
+  100%{top: 264px; left:47px;}
+}

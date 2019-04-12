@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body{
+  background-color:#585A5C;
+  font-size: 20px;
+  font-family: "Roboto", Arial, seriff;
+  color: 	#585A5C;
+}
+
+.meny{
+  display: flex;
+  justify-content: flex-start;
+  margin: auto;
+  background-color: #f0f2f1;
+  border-bottom: 10px solid #585A5C;
+}
+a{
+  padding:20px;
+  background-color:#f0f2f1;
+  width:150px;
+  text-decoration: none;
+  font-weight: bold;
+  border-right: 2px solid #b2b0b0;
+  border-bottom: 2px solid #f0f2f1;
+  color: 	#585A5C;
+}
+a:hover{
+  border-bottom: 2px solid #f01313;
+  color:#f01313;
+}
+.innpakning{
+  background-color: #f0f2f1;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 500px;
+  justify-content: center;
+}
+button{
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: #f01313;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 4px;
+    color: #eae8e8;
+}
+
+.billett{
+  width: 600px;
+}

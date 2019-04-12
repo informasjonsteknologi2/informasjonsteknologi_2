@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Viten</title>
+
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+
+  <body>
+    <div class="meny">
+        <a href="oppgave1.html">Hjem</a>
+        <a href="oppgave2.html">Billetter</a>
+        <a href="oppgave3.html">Test deg selv</a>
+    </div>
+
+
+    <div class="innpakning">
+      <h1>Delta i vår quiz om verdensrommet.</h1>
+      <p>Du kommer til å få opp et bilde i noen sekunder før du får spørsmål relatert til bildet.</p>
+      <p>Du får 2 poeng for riktig svar, -1 poeng for galt svar og 0 poeng for ikke avgitt svar.</p>
+      <button>Trykk her for å starte</button>
+
+    </div>
+
+   <script>
+
+      //Selve quizen
+      quiz = [
+        {spm:"Hvilket stjernebilde så du her?",
+          bilde:"spm1.jpg",
+          alternativer:[
+            {tekst:"Orion", fasit:"riktig"},
+            {tekst:"Løven", fasit:"feil"},
+            {tekst:"Karlsvogna", fasit:"feil"}
+          ],
+        },
+        {spm:"Hvem var dette? Og hva er han kjent for?",
+            bilde:"spm2.jpg",
+            alternativer:[
+            {tekst:"Neil Armstrong, førstemann på månen", fasit:"riktig"},
+            {tekst:"Neil Armstrong, førstemann i verdensrommet", fasit:"feil"},
+            {tekst:"Buzz Aldrin, andremann på månen", fasit:"feil"},
+            {tekst:"Buzz Aldrin, førstemann på månen", fasit:"feil"},
+            {tekst:"Chris Hadfield, bodd på romstasjonen", fasit:"feil"}
+          ]
+        },
+        {spm:"Var det en tannkost på bildet?",
+          bilde:"spm3.jpg",
+          alternativer:[
+            {tekst:"Nei", fasit:"riktig"},
+            {tekst:"Ja", fasit:"feil"}
+          ]
+        },
+        {spm:"Hva var dette?",
+          bilde:"spm4.jpg",
+          alternativer:[
+            {tekst:"ISS international space station", fasit:"riktig"},
+            {tekst:"GPS-satellitt", fasit:"feil"},
+            {tekst:"Hubble space telescope", fasit:"feil"}
+          ],
+        },
+        {spm:"Hvilken planet var dette?",
+          bilde:"spm5.jpg",
+          alternativer:[
+            {tekst:"Neptun", fasit:"riktig"},
+            {tekst:"Pluto", fasit:"feil"},
+            {tekst:"Uranus", fasit:"feil"},
+            {tekst:"Mars", fasit:"feil"}
+          ]
+        },
+      ]
+
+      var indexSpm = 0;//For å holde ordne på hvilket spm som vises
+      var poeng = 0; //For å kunne telle poeng
+
+      var innpakningEl = document.querySelector(".innpakning")
+      innpakningEl.style.position = "relative" //For at noe av innholdet skal ha position absolute
+      var startknapp = document.querySelector("button");
+      startknapp.addEventListener("click", nyRunde);
+
+      //Starter opp et nytt spm ved å vise et bilde i 5 sek. Deretter skrive spm ut med funksjonen skrivUtSpm
+      function nyRunde() {
+
+        innpakningEl.innerHTML = "";
+
+        //Endrer bilde
+        var bilde = document.createElement("img");
+        bilde.src = "media/" + quiz[indexSpm].bilde
+        innpakningEl.appendChild(bilde);
+
+        setTimeout(skrivUtSpm, 3000);
+      }
+
+      //Skriver ut spm og alternativer.
+      function skrivUtSpm() {
+        innpakningEl.innerHTML = "";//Tømmer innholdet i innpakning
+        var spmEl = document.createElement("h3");
+        spmEl.innerHTML = quiz[indexSpm].spm;
+        innpakningEl.appendChild(spmEl);
+        var radioBoks = document.createElement("div");
+
+        //Skriver ut alternativene i tilfeldig rekkefølge. Alternativene skrives ut som radio-buttons
+        var indeksArray = [];
+        for (var i = 0; i < quiz[indexSpm].alternativer.length; i++) {
+          indeksArray.push(i)
+        }
+        for (var i = 0; i < quiz[indexSpm].alternativer.length; i++) {
+          var index = Number(indeksArray.splice(Math.floor(Math.random()*indeksArray.length-1),1))
+          var avsnittEl =document.createElement("p")
+          var radioEl = document.createElement("input");
+          radioEl.type = "radio";
+          radioEl.name = "spm";
+          radioEl.value = quiz[indexSpm].alternativer[index].fasit;
+          avsnittEl.appendChild(radioEl);
+          avsnittEl.innerHTML += quiz[indexSpm].alternativer[index].tekst + "<br>";
+          radioBoks.appendChild(avsnittEl);
+        }
+        innpakningEl.appendChild(radioBoks);
+
+        //En knapp for at brukeren skal kunne bekrefte svaret sitt.
+        var bekreftKnapp = document.createElement("button");
+        bekreftKnapp.innerHTML = "Svar"
+        bekreftKnapp.addEventListener("click",mellomResultat);
+        bekreftKnapp.style.marginTop = "20px";
+        innpakningEl.appendChild(bekreftKnapp)
+
+      }
+      //Markerer riktig svar grønt og oppdaterer poeng.
+      //Hvis feil svar er avgitt markeres denne med rødt
+      //Skriver ut en liten utskrift om brukeren har svart, eller om svaret er riktig eller ikke
+      function mellomResultat() {
+        alleRadio = document.querySelectorAll("input");
+        alleAvsnittEl = document.querySelectorAll("p");
+
+        var utskrift = document.createElement("p");
+        utskrift.style.position = "absolute";
+        utskrift.style.bottom = "30px";
+        var riktig = false; //Hvis brukeren har svart riktig endres denne til true
+        var huket = false; //Hvis denne er true har brukeren svart på spm.
+        for (var i = 0; i < alleRadio.length; i++) {
+          if (alleRadio[i].checked) {
+            huket = true
+              //Avgitt svar er riktig. Skriver ut beskjed om det og oppdaterer poeng
+            if (alleRadio[i].value=="riktig") {
+              utskrift.innerHTML="Bra! Du svarte riktig!";
+              riktig = true;
+              poeng +=2;
+            } else {
+              //Markerer galt svar med en rød-farge. Og skriver ut beskjed om feil svar og oppdaterer poeng
+              alleAvsnittEl[i].style.backgroundColor = "#EE9090";
+              alleAvsnittEl[i].style.borderRadius = "5px";
+              utskrift.innerHTML = "Du svarte feil..."
+              poeng --;
+            }
+          }
+
+          //Markerer riktig svar med en grønn farge
+          if (alleRadio[i].value=="riktig") {
+            alleAvsnittEl[i].style.backgroundColor = "#90EE90";
+            alleAvsnittEl[i].style.borderRadius = "5px";
+          }
+        }
+        if (!huket) {
+          utskrift.innerHTML = "Du svarte ikke...";
+        }
+
+        //Endrer funksjonen til svarknapp slik at den går til neste spm
+        innpakningEl.appendChild(utskrift);
+        var svarKnapp = document.querySelector("button");
+        svarKnapp.removeEventListener("click",mellomResultat);
+
+        //Sjekker om dette var siste spm. Hvis det er det skal knappen gå til resultat.
+        //Hvis ikke skal knappen gå til neste spm.
+        if (indexSpm == quiz.length-1) {
+          svarKnapp.innerHTML = "Resultat";
+          svarKnapp.addEventListener("click", resultat);
+        } else {
+          svarKnapp.innerHTML = "Neste";
+          indexSpm +=1
+          svarKnapp.addEventListener("click",nyRunde)
+        }
+      }
+
+      //Skriver ut resultatet. Samt en liten beskjed utfra poengsum
+      function resultat() {
+        innpakningEl.innerHTML = "";
+        var utskrift = document.createElement("p");
+        if (poeng<=0) {
+          utskrift.innerHTML = "Du har føttene godt planta på jorda. Kanskje du bør kikke opp en gang i blant?"
+        } else if (poeng<=4) {
+          utskrift.innerHTML = "Dette var ikke ditt sterkeste tema.";
+        }else if (poeng<=6) {
+          utskrift.innerHTML = "Du er mer enn gjennomsnittlig interessert i verdensrommet.";
+        } else if (poeng<=9) {
+          utskrift.innerHTML = "Astronaut i trening, en dag kommer du deg til romstasjonen."
+        } else {
+          utskrift.innerHTML = "Wow, du må være en erfaren astronaut!"
+        }
+        utskrift.innerHTML +=" Du fikk " + poeng + " av " + 2*quiz.length + " poeng.";
+        innpakningEl.appendChild(utskrift);
+
+        // En knapp for å starte spillet på nytt.
+        nyttSpillKnapp = document.createElement("button");
+        nyttSpillKnapp.innerHTML = "Spill på nytt";
+        nyttSpillKnapp.addEventListener("click", startPaNytt);
+        innpakningEl.appendChild(nyttSpillKnapp);
+
+      }
+
+
+      //Refresher siden for å starte spillet på nytt.
+      function startPaNytt() {
+        document.location.reload();
+      }
+
+   </script>
+  </body>
+
+</html>

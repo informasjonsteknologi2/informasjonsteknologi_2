@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Viten</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="input.css">
+
+  </head>
+
+  <body>
+    <div class="meny">
+        <a href="oppgave1.html">Hjem</a>
+        <a href="oppgave2.html">Billetter</a>
+        <a href="oppgave3.html">Test deg selv</a>
+    </div>
+
+
+    <div class="innpakning">
+      <h1>Kjøp inngangsbillett</h1>
+      <div class="billett">
+        <p>Du får familierabatt når dere er minst 2 voksne og 1 barn.
+           Dette blir automatisk lagt til. Har du rabattkode kan du fylle inn denne for ekstra rabatt.
+        </p>
+        Antall Barn (125,-) <input type="number" id="barn">
+        Antall Voksne(200,-) <input type="number" id="voksne">
+        Rabatt Kode (Bruk store bokstaver) <input type="text" id="rabattKode">
+
+        <button id="bekreft">Kjøp</button>
+        <p id="bekreftelse"></p>
+
+      </div>
+    </div>
+
+   <script>
+      var barnInputEl = document.querySelector("#barn");
+      var voksneInputEl = document.querySelector("#voksne");
+      var rabattKodeInputEl = document.querySelector("#rabattKode");
+
+      var bekreftelseEl = document.querySelector("#bekreftelse")
+
+      var bekreftKnappEl = document.querySelector("#bekreft");
+      bekreftKnappEl.addEventListener("click",bestillingsutskrift);
+
+      var prisBarn = 125;
+      var prisVoksen = 200;
+      var prosent = 0.10; //Angitt som prosentfaktor
+
+      function bestillingsutskrift() {
+
+        var antallBarn = barnInputEl.value;
+        var antallVoksne = voksneInputEl.value;
+        var rabattKode = rabattKodeInputEl.value;
+
+        //Stopper funksjonen hvis de har angitt negative tall
+        if (antallBarn<0||antallVoksne<0) {
+          bekreftelseEl.innerHTML = "Det har skjedd en feil. Prøv på nytt eller ta kontakt med betjeningen";
+          return
+        }
+
+        var ordinaerPris = prisVoksen*antallVoksne + prisBarn*antallBarn
+
+        var familierabatt = false
+
+        //Sjekker om de oppnår familierabatt og gir det
+        if (antallBarn>=1&&antallVoksne>=2) {
+          var pris = prisVoksen*antallVoksne + 100 + 70*(antallBarn-1);
+          familierabatt = true
+        } else {
+          var pris = ordinaerPris;
+        }
+
+        var rabattGitt = false
+
+        //Sjekker om riktig rabattkode er fyllt inn
+        if (rabattKode ==="RABATT") {
+          pris = pris - pris*prosent;
+          rabattGitt=true
+        }
+
+        totalrabatt = ordinaerPris - pris;
+
+        //Bestillingsutskrift
+        bekreftelseEl.innerHTML = "Du har bestilt inngang til ";
+        if (antallVoksne>0&antallBarn>0) {
+          bekreftelseEl.innerHTML += antallVoksne + " voksne og " + antallBarn + " barn"
+        } else if (antallVoksne>0) {
+          bekreftelseEl.innerHTML += antallVoksne + " voksne"
+        } else if (antallBarn>0) {
+          bekreftelseEl.innerHTML += antallBarn + " barn"
+        } else {
+          bekreftelseEl.innerHTML = "Det har skjedd en feil. Prøv på nytt eller ta kontakt med betjeningen";
+          return
+        }
+        bekreftelseEl.innerHTML += " for " + pris + " kr."
+
+        if (familierabatt&&rabattGitt) {
+          bekreftelseEl.innerHTML += " Det er inkludert familierabatt og 10% rabatt som utgjør " + totalrabatt + " kr av ordinær pris."
+        } else if (familierabatt) {
+          bekreftelseEl.innerHTML += " Det er inkludert familierabatt som utgjør " + totalrabatt + " kr av ordinær pris."
+        } else if (rabattGitt) {
+          bekreftelseEl.innerHTML += " Det er inkludert 10% rabatt som utgjør "+ totalrabatt + " kr av ordinær pris."
+        }
+
+      }
+
+   </script>
+  </body>
+
+</html>
