@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style >
+      div{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        margin: 100px auto;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="firkant">
+
+    </div>
+
+   <script>
+
+     var firkantEl = document.querySelector(".firkant");
+     var rotasjon = 0; //Hvor mange grader firkanten er snurret rundt
+     var fart = 1; //Hvor mange grader den skal snu seg
+
+     //Animation request frame for å animere i Javascript;
+     function animer() {
+       rotasjon +=fart;
+       firkantEl.style.transform = "rotate(" + rotasjon + "deg)";
+
+       requestAnimationFrame(animer) //flytter på firkanten 60 ganger i sekundet
+     }
+
+     requestAnimationFrame(animer)
+
+
+   </script>
+  </body>
+
+</html>
