@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+  </head>
+
+  <body>
+    <img src="fjell.jpg" height="200" alt="fjell" id="jpg">
+    <img src="fjellPng.png" height="200" alt="fjell" id="png">
+    <img src="fjellSvg.svg" height="200" alt="fjell" id="svg">
+    <p></p>
+
+   <script>
+     var jpgEl = document.querySelector("#jpg");
+     jpgEl.addEventListener("click", utskriftJPG);
+     var pngEl = document.querySelector("#png");
+     pngEl.addEventListener("click", utskriftPNG);
+     var svgEl = document.querySelector("#svg");
+     svgEl.addEventListener("click", utskriftSVG);
+
+     var avsnittEl =document.querySelector("p")
+
+     function utskriftJPG() {
+       avsnittEl.innerHTML = "Anbefalt filformat er jpg. Dette pga at det er et fotografi. Det vil si at detaljer på bildet kan gjøre at det orginalt tar mye plass. Derfor kan det være nyttig å komprimere bildet slik at det bruker mindre data for å laste ned for brukeren. Hovedtype grafikk: Rastergrafikk"
+     }
+     function utskriftPNG() {
+       avsnittEl.innerHTML = "Anbefalt filformat er png. Dette er fordi deler av bildet skal være gjennomsiktig og png er et av formatene som støtter gjennomsiktighet. Hovedtype datagrafikk: Rastergrafikk"
+     }
+     function utskriftSVG() {
+       avsnittEl.innerHTML = "Anbefalt filformat er svg. Dette er fordi det skal brukes til logo som ofte skal forstørres eller forminskes en del. Derfor bruker man svg som forstørrer og forminsker uten at det blir kornete. Hovedtype datagrafikk: Vektorgrafikk"
+     }
+   </script>
+  </body>
+
+</html>

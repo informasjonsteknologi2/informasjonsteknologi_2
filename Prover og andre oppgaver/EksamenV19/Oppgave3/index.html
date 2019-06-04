@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+  </head>
+
+  <body>
+    <h4>Start med å velge hytta du ønsker å starte turen fra</h4>
+
+   <script>
+     var hytter = [
+      {hytte: "Gjendesheim",
+        turer:[
+          {tilHytte:"Glitterheim", lengde:22},
+          {tilHytte:"Memurbu", lengde:14}
+        ]
+      },
+      {hytte: "Glitterheim",
+        turer:[
+          {tilHytte:"Gjendesheim", lengde:22},
+          {tilHytte:"Memurbu", lengde:18},
+          {tilHytte:"Spiterstulen", lengde:17}
+        ]
+      },
+      {hytte: "Memurbu",
+        turer:[
+          {tilHytte:"Gjendesheim", lengde:14},
+          {tilHytte:"Glitterheim", lengde:18},
+          {tilHytte:"Gjendebu", lengde:10}
+        ]
+      },
+      {hytte: "Gjendebu",
+        turer:[
+          {tilHytte:"Memurbu", lengde:10},
+          {tilHytte:"Leirvassbu", lengde:19},
+          {tilHytte:"Spiterstulen", lengde:24},
+          {tilHytte:"Olavsbu", lengde:16}
+        ]
+      },
+      {hytte: "Leirvassbu",
+        turer:[
+          {tilHytte:"Gjendebu", lengde:19},
+          {tilHytte:"Spiterstulen", lengde:15},
+          {tilHytte:"Olavsbu", lengde:11}
+        ]
+      },
+      {hytte: "Spiterstulen",
+        turer:[
+          {tilHytte:"Glitterheim", lengde:17},
+          {tilHytte:"Gjendebu", lengde:24},
+          {tilHytte:"Leirvassbu", lengde:15}
+        ]
+      },
+      {hytte: "Olavsbu",
+        turer:[
+          {tilHytte:"Gjendebu", lengde:16},
+          {tilHytte:"Leirvassbu", lengde:11}
+        ]
+      },
+
+     ]
+
+     var bodyEl = document.querySelector("body")
+     var selectEl = document.createElement("select");
+     var antallDager = 3;
+
+     //Lager dropdown for valg av første hytte
+     selectEl.id = "hytte1";
+     selectEl.addEventListener("click", nesteHytte);
+     optionEl = document.createElement("option")
+     optionEl.innerHTML = "Velg hytte 1";
+     optionEl.value = "";
+     selectEl.appendChild(optionEl)
+     for (var j = 0; j < hytter.length; j++) {
+       optionEl = document.createElement("option")
+       optionEl.value = hytter[j].hytte;
+       optionEl.innerHTML = hytter[j].hytte;
+       selectEl.appendChild(optionEl)
+     }
+     bodyEl.appendChild(selectEl);
+
+     //Lager dropdown for hytte 2 og 3 uten at hytene er med i dropdown
+     for (var i = 2; i <= antallDager; i++) {
+       var selectEl = document.createElement("select");
+       selectEl.id = "hytte"+i;
+       selectEl.addEventListener("click", nesteHytte);
+       var optionEl = document.createElement("option")
+       optionEl.innerHTML ="Velg hytte " + i;
+       optionEl.value = "";
+       selectEl.appendChild(optionEl);
+       bodyEl.appendChild(selectEl)
+     }
+
+     //Lager knapp for å bekrefte turvalg
+     var knappEl = document.createElement("button");
+     knappEl.innerHTML = "Bekreft valg";
+     knappEl.addEventListener("click", skrivUt)
+     bodyEl.appendChild(knappEl);
+
+     //Lager paragraf for utskrift
+     var avsnittEl = document.createElement("p");
+     avsnittEl.className = "utskrift";
+     bodyEl.appendChild(avsnittEl);
+     var avsnittEl = document.querySelector(".utskrift");
+
+     function skrivUt() {
+       avsnittEl.innerHTML = "";
+       var alleValgEl = document.querySelectorAll("select");
+       var valgteHytter = []
+       for (var i = 0; i < alleValgEl.length; i++) {
+         valgteHytter[i] = alleValgEl[i].value
+       }
+       var totalLengde = 0
+       for (var i = 0; i < valgteHytter.length-1; i++) {
+         for (var j = 0; j < hytter.length; j++) {
+           if(hytter[j].hytte ==valgteHytter[i]){
+             for (var k = 0; k < hytter[j].turer.length; k ++) {
+               if(hytter[j].turer[k].tilHytte == valgteHytter[i+1]){
+                 totalLengde += hytter[j].turer[k].lengde;
+                 avsnittEl.innerHTML += "Fra " + hytter[j].hytte + " til ";
+                 avsnittEl.innerHTML += hytter[j].turer[k].tilHytte + " ( ";
+                 avsnittEl.innerHTML += hytter[j].turer[k].lengde + " km )<br>"
+               }
+             }
+           }
+         }
+       }
+       avsnittEl.innerHTML+= "Totalt er turen på " + totalLengde + " km."
+     }
+
+     function nesteHytte(e) {
+       for (var i = Number(e.target.id[5])+1; i <= antallDager; i++) {
+         //Tømme følgende felter fra dropdpwn valgt
+         var slettValg = document.querySelector("#hytte"+i);
+         slettValg.innerHTML = "";
+         var optionEl = document.createElement("option")
+         optionEl.innerHTML ="Velg hytte " + i;
+         optionEl.value = "";
+         slettValg.appendChild(optionEl);
+       }
+       //Lager dropdown av valgbare hytter basert på forrige valg
+       var valgHytte = e.target.value
+       var oppdaterEl = document.querySelector("#hytte" + (Number(e.target.id[5])+1))
+       if (valgHytte!==""&&(Number(e.target.id[5])+1)<=antallDager) {
+         //brukeren har valgt en hytte og det er ikke den siste hytta/dagen
+
+         for (var j = 0; j < hytter.length; j++) {
+           if (valgHytte==hytter[j].hytte) {
+             for (var k = 0; k < hytter[j].turer.length; k++) {
+               optionEl = document.createElement("option");
+               optionEl.value = hytter[j].turer[k].tilHytte;
+               optionEl.innerHTML = hytter[j].turer[k].tilHytte + " " + hytter[j].turer[k].lengde + " km";
+               oppdaterEl.appendChild(optionEl)
+
+             }
+           }
+         }
+       }
+     }
+   </script>
+  </body>
+
+</html>

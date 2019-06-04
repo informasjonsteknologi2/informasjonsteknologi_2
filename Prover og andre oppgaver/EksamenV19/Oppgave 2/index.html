@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>TITLE</title>
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+  </head>
+
+  <body>
+    Angi bredden
+    <input type="number" id="bredde">
+    Angi høyden
+    <input type="number" id="hoyde">
+    <button>Bekreft</button>
+    <p id="utskrift"></p>
+    <img>
+
+   <script>
+     var knappEl = document.querySelector("button");
+     knappEl.addEventListener("click", beregn);
+
+     var bodyEl = document.querySelector("body");
+     var bildeEl = document.querySelector("img");
+     var avsnittEl = document.querySelector("#utskrift")
+
+     function beregn() {
+       var bredde = Number(document.querySelector("#bredde").value)
+       var hoyde = Number(document.querySelector("#hoyde").value)
+
+       //Sjekker om brukeren legger inn gyldige tall
+       if (bredde%1!=0 || hoyde%1!=0 ||bredde<=0 ||hoyde<=0) {
+         avsnittEl.innerHTML = "Du må angi positive hele tall";
+         bildeEl.src = "";
+         return
+       }
+
+       if (bredde>1920) {
+         avsnittEl.innerHTML = "Bredden kan ikke være over 1920";
+         bildeEl.src = "";
+         return
+       }
+
+       if (bredde>hoyde) {
+         // liggende
+         bildeEl.src = "liggende.jpg";
+       } else if (bredde==hoyde) {
+         //kvadratisk
+         bildeEl.src = "kvadratisk.jpg";
+       } else {
+         // stående
+         bildeEl.src = "staende.jpg";
+       }
+
+       var antallPiksler = bredde*hoyde;
+       var antallMPiks = antallPiksler/1000000;
+
+       avsnittEl.innerHTML = "Bildet er " + antallPiksler + " piksler stort. "
+       avsnittEl.innerHTML += "Det tilsvarer " + antallMPiks + " megapiksler."
+
+     }
+
+
+   </script>
+  </body>
+
+</html>
